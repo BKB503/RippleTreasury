@@ -1,0 +1,25 @@
+﻿# Design example, deliberately outside .github/workflows; not enabled.
+name: Proposed Azure release
+on: workflow_dispatch
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  release:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Production admission gate
+        run: |
+          echo 'Before enabling: PostgreSQL/provider/auth/network/migration/restore gates from docs/AZURE_DEPLOYMENT.md must pass.'
+          exit 1
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - run: az bicep build --file deploy/azure/main.bicep
+      # Next: what-if, approved Bicep deployment with secure parameters, SHA images,
+      # controlled migration job, staged Container Apps revision rollout and SWA build.
+      # Implement only after admission gate; do not remove it just to make a pipeline green.

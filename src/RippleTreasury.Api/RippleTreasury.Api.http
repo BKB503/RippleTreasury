@@ -1,0 +1,6 @@
+@RippleTreasury.Api_HostAddress = http://localhost:5062
+
+GET {{RippleTreasury.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

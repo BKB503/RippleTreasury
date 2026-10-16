@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Ripple Treasury (API + React + embedded worker)",
+    "Projects": [
+      {
+        "Path": "src\\RippleTreasury.Api\\RippleTreasury.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\web\\RippleTreasury.Web.esproj",
+        "Action": "None"
+      }
+    ]
+  }
+]

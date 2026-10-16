@@ -1,0 +1,31 @@
+﻿name: Validate Ripple Treasury
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: src/web/package-lock.json
+      - run: npm ci
+        working-directory: src/web
+      - run: dotnet tool restore
+      - run: dotnet restore RippleTreasury.slnx
+      - run: dotnet build RippleTreasury.slnx --configuration Release --no-restore
+      - run: dotnet test RippleTreasury.slnx --configuration Release --no-build
+      - run: npm run lint
+        working-directory: src/web
+      - run: npm run build
+        working-directory: src/web
+      - run: npx playwright install chromium
+        working-directory: src/web
+      - run: npm run test:e2e
+        working-directory: src/web

@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "RippleTreasury": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5080",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Frontend__OpenBrowser": "true"
+      }
+    }
+  }
+}

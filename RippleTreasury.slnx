@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RippleTreasury.Api/RippleTreasury.Api.csproj" />
+    <Project Path="src/RippleTreasury.Application/RippleTreasury.Application.csproj" />
+    <Project Path="src/RippleTreasury.Contracts/RippleTreasury.Contracts.csproj" />
+    <Project Path="src/RippleTreasury.Domain/RippleTreasury.Domain.csproj" />
+    <Project Path="src/RippleTreasury.Infrastructure/RippleTreasury.Infrastructure.csproj" />
+    <Project Path="src/RippleTreasury.Worker/RippleTreasury.Worker.csproj" />
+  </Folder>
+  <Folder Name="/src/web/">
+    <Project Path="src/web/RippleTreasury.Web.esproj">
+      <Build />
+      <Deploy Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RippleTreasury.Api.Tests/RippleTreasury.Api.Tests.csproj" />
+    <Project Path="tests/RippleTreasury.Application.Tests/RippleTreasury.Application.Tests.csproj" />
+    <Project Path="tests/RippleTreasury.Domain.Tests/RippleTreasury.Domain.Tests.csproj" />
+    <Project Path="tests/RippleTreasury.Infrastructure.Tests/RippleTreasury.Infrastructure.Tests.csproj" />
+    <Project Path="tests/RippleTreasury.Integration.Tests/RippleTreasury.Integration.Tests.csproj" />
+  </Folder>
+</Solution>
